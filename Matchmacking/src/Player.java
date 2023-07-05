@@ -26,7 +26,7 @@ public class Player implements Runnable {
 
 			System.out.println("Player " + id + " is performing game activities.");
 			gameInterface.movePlayerToPlaying(this);
-			Thread.sleep(20000);
+			Thread.sleep(5000);
 			matchmakingQueue.getGameSemaphore().release();
 			System.out.println("Player " + id + " has finished the game.");
 			gameInterface.movePlayerToFinished(this);
