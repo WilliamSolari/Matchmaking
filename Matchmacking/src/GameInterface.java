@@ -60,8 +60,7 @@ public class GameInterface extends JFrame {
 	private synchronized  void startMatchmaking() {
 		int totalPlayers = Integer.parseInt(JOptionPane.showInputDialog(this, "Enter the number of players that want to play:"));
 		int maxGames = Integer.parseInt(JOptionPane.showInputDialog(this, "Enter the maximum number of games allowed simultaniously:"));
-
-
+			
 		matchmakingSystem = new MatchmakingQueue(totalPlayers, this, maxGames);
 		Thread matchmakingThread = new Thread(new MatchmakingRunnable(matchmakingSystem));
 		matchmakingThread.start();

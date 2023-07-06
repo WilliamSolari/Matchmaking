@@ -12,6 +12,7 @@ public class MatchmakingQueue {
 	public MatchmakingQueue(int totalPlayers, GameInterface gameInterface, int maxGames) {
 		this.gameInterface=gameInterface;
 		this.totalPlayers = totalPlayers;
+		this.maxGames=maxGames;
 		gameSemaphore=new Semaphore(PLAYERS_NEEDED_PER_GAME*maxGames);
 		barrier = new CyclicBarrier(PLAYERS_NEEDED_PER_GAME);
 	}
