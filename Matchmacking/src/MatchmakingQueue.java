@@ -20,6 +20,7 @@ public class MatchmakingQueue {
 	public void start() throws InterruptedException {
 		for (int i = 1; i <= totalPlayers; i++) {
 			Player player = new Player(i, this, gameInterface);
+			
 			Thread thread = new Thread(player);
 			thread.start();
 

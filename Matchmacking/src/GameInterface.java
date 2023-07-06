@@ -52,7 +52,23 @@ public class GameInterface extends JFrame {
 			}
 		});
 		buttonPanel.add(startButton);
+		JButton resetButton = new JButton("Reset");
+		resetButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				waitingPanel.removeAll();
+				playingPanel.removeAll();
+				finishedPanel.removeAll();
+				waitingPlayers.clear();
+				playingPlayers.clear();
+				finishedPlayers.clear();
+				mainPanel.revalidate();
+				mainPanel.repaint();
 
+			}
+		});
+		
+		buttonPanel.add(resetButton);
 		add(mainPanel, BorderLayout.CENTER);
 		add(buttonPanel, BorderLayout.SOUTH);
 	}
@@ -60,7 +76,7 @@ public class GameInterface extends JFrame {
 	private synchronized  void startMatchmaking() {
 		int totalPlayers = Integer.parseInt(JOptionPane.showInputDialog(this, "Enter the number of players that want to play:"));
 		int maxGames = Integer.parseInt(JOptionPane.showInputDialog(this, "Enter the maximum number of games allowed simultaniously:"));
-			
+
 		matchmakingSystem = new MatchmakingQueue(totalPlayers, this, maxGames);
 		Thread matchmakingThread = new Thread(new MatchmakingRunnable(matchmakingSystem));
 		matchmakingThread.start();

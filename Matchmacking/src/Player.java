@@ -20,13 +20,12 @@ public class Player implements Runnable {
 		System.out.println("Player " + id + " joined the matchmaking queue.");
 		gameInterface.addWaitingPlayer(this);
 		try {
-			//Thread.sleep(1000);
 			matchmakingQueue.getBarrier().await();
 			matchmakingQueue.getGameSemaphore().acquire();
 
 			System.out.println("Player " + id + " is performing game activities.");
 			gameInterface.movePlayerToPlaying(this);
-			Thread.sleep(5000);
+			Thread.sleep(6000);
 			matchmakingQueue.getGameSemaphore().release();
 			System.out.println("Player " + id + " has finished the game.");
 			gameInterface.movePlayerToFinished(this);
@@ -41,7 +40,6 @@ public class Player implements Runnable {
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
