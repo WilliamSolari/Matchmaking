@@ -73,7 +73,7 @@ public class GameInterface extends JFrame {
 		add(buttonPanel, BorderLayout.SOUTH);
 	}
 
-	private synchronized  void startMatchmaking() {
+	private synchronized void startMatchmaking() {
 		int totalPlayers = Integer.parseInt(JOptionPane.showInputDialog(this, "Enter the number of players that want to play:"));
 		int maxGames = Integer.parseInt(JOptionPane.showInputDialog(this, "Enter the maximum number of games allowed simultaniously:"));
 
